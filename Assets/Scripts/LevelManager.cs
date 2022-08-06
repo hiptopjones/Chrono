@@ -17,27 +17,79 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject goalPrefab;
 
+    private List<Player> players = new List<Player>();
+    private int currentPlayerIndex;
+
     // Start is called before the first frame update
     void Start()
     {
         string[] lines = new string[]
         {
-            "****************",
-            " E              ",
-            "**********  ****",
-            "**********    **",
-            "************  **",
-            "                ",
-            "*****  *********",
-            "*****  *********",
-            "                ",
-            "**********  ****",
-            " S              ",
-            "****************",
+"================================================================",
+"================================================================",
+"================================================================",
+"=============================   ================================",
+"============================= G ================================",
+"",
+"",
+"",
+"=============================   ================================",
+"=============================   ================================",
+"=============================   ================================",
+"=============================   ================================",
+"=============================   ================================",
+"",
+"",
+"",
+"=============================   ================================",
+"=============================   ================================",
+"=============================   ==================   ===========",
+"=============================   ================== v ===========",
+"=============================   ==================   ===========",
+//"",
+//"",
+//"",
+//"===========   ===============   ================   =============",
+//"=====         ===============   ================   =============",
+//"===== >       ===============   ================   =============",
+//"=====         ===============   ================   =============",
+//"===========   ===============   ================   =============",
+//"",
+//"",
+//"",
+//"===========   ===============   ================   =============",
+//"===========   ===============   ================   =============",
+//"===========   ===============   ================   =============",
+//"===========   ===============   ================   =============",
+//"===========   ===============   ================   =============",
+//"",
+//"",
+//"",
+//"===========   ===============   ================   =============",
+//"===========   ===============   ================   =============",
+//"===========   ===============   ================   =============",
+//"===========   ===============   ================   =============",
+//"===========   ===============   ================   =============",
+//"",
+//"",
+//"",
+//"====   ====   ===============   ================   =============",
+//"====   ====   ===============   ================       =========",
+//"==== ^ ====   ===============   ================     < =========",
+//"===========   ===============   ================       ========="
+//"===========   ===============   ================   =============",
+"",
+"",
+"",
+"================================================================",
+"================================================================",
+"================================================================",
+"================================================================",
+"================================================================",
+
         };
 
-        bool hasStart = false;
-        bool hasEnd = false;
+        bool hasGoal = false;
 
         Vector3 spawnPosition = Vector3.zero;
         foreach (string line in lines.Reverse())
@@ -46,37 +98,50 @@ public class LevelManager : MonoBehaviour
 
             foreach (char c in line)
             {
-                switch (c)
+                if (c == '=')
                 {
-                    case '*':
-                        Instantiate(brickPrefab, spawnPosition, Quaternion.identity, levelParent);
-                        break;
+                    Instantiate(brickPrefab, spawnPosition, Quaternion.identity, levelParent);
+                }
+                else if (c == 'G')
+                {
+                    if (hasGoal)
+                    {
+                        throw new System.Exception("Expected a single goal point");
+                    }
 
-                    case ' ':
-                        break;
+                    Instantiate(goalPrefab, spawnPosition, Quaternion.identity, levelParent);
+                    hasGoal = true;
+                }
+                else if (c == '>' || c == '<' || c == 'v' || c == '^')
+                {
+                    GameObject gameObject = Instantiate(playerPrefab, spawnPosition, Quaternion.identity, levelParent);
+                    Player player = gameObject.GetComponent<Player>();
+                    players.Add(player);
 
-                    case 'S':
-                        if (hasStart)
-                        {
-                            throw new System.Exception("Expected a single start point");
-                        }
-
-                        Instantiate(playerPrefab, spawnPosition, Quaternion.identity, levelParent);
-                        hasStart = true;
-                        break;
-
-                    case 'E':
-                        if (hasEnd)
-                        {
-                            throw new System.Exception("Expected a single end point");
-                        }
-
-                        Instantiate(goalPrefab, spawnPosition, Quaternion.identity, levelParent);
-                        hasEnd = true;
-                        break;
-
-                    default:
-                        throw new System.Exception("Unexpected level definition character");
+                    if (c == '>')
+                    {
+                        player.transform.Rotate(Vector3.up, 90);
+                    }
+                    else if (c == 'v')
+                    {
+                        player.transform.Rotate(Vector3.up, 180);
+                    }
+                    else if (c == '<')
+                    {
+                        player.transform.Rotate(Vector3.up, 270);
+                    }
+                    else if (c == '^')
+                    {
+                        // This is the default rotation
+                    }
+                }
+                else if (c == ' ')
+                {
+                    // Empty
+                }
+                else
+                {
+                    throw new System.Exception("Unexpected level definition character");
                 }
 
                 spawnPosition += Vector3.right;
@@ -88,5 +153,15 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public Player GetCurrentPlayer()
+    {
+        if (currentPlayerIndex < players.Count)
+        {
+            return players[currentPlayerIndex];
+        }
+
+        return null;
     }
 }
