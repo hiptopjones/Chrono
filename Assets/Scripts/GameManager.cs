@@ -20,6 +20,19 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (Time.timeScale > 0)
+            {
+                Time.timeScale = 0;
+                return;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+        }
+
         Player player = levelManager.GetCurrentPlayer();
         if (player == null)
         {
@@ -32,9 +45,12 @@ public class GameManager : MonoBehaviour
             smoothFollow.SetTarget(currentPlayer.gameObject);
         }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (!currentPlayer.IsRunning())
         {
-            player.StartRunning();
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                currentPlayer.StartRunning();
+            }
         }
     }
 }
