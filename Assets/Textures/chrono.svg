@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="chrono.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:showpageshadow="true"
+     showborder="false"
+     inkscape:zoom="0.32"
+     inkscape:cx="-229.6875"
+     inkscape:cy="964.0625"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#dfdfdf;fill-opacity:1;fill-rule:evenodd;stroke:#575757;stroke-width:2.79373;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2300"
+       width="297.20627"
+       height="97.206268"
+       x="23.841202"
+       y="21.567438"
+       inkscape:export-filename="C:\Users\hipto\source\repos\Unity\Chrono\Assets\Textures\block.png"
+       inkscape:export-xdpi="76.199997"
+       inkscape:export-ydpi="76.199997" />
+    <rect
+       style="fill:#8e8e8e;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.28736;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1238"
+       width="31.77421"
+       height="76.546555"
+       x="42.33419"
+       y="32.121178"
+       inkscape:export-filename="C:\Users\hipto\source\repos\Unity\Chrono\Assets\Textures\block.png"
+       inkscape:export-xdpi="76.199997"
+       inkscape:export-ydpi="76.199997" />
+    <rect
+       style="fill:#8e8e8e;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.30117;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2188"
+       width="32.340427"
+       height="76.118134"
+       x="132.36217"
+       y="32.335388"
+       inkscape:export-filename="C:\Users\hipto\source\repos\Unity\Chrono\Assets\Textures\block.png"
+       inkscape:export-xdpi="76.199997"
+       inkscape:export-ydpi="76.199997" />
+    <rect
+       style="fill:#8e8e8e;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.30117;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2190"
+       width="32.340427"
+       height="76.118134"
+       x="177.66385"
+       y="32.335388"
+       inkscape:export-filename="C:\Users\hipto\source\repos\Unity\Chrono\Assets\Textures\block.png"
+       inkscape:export-xdpi="76.199997"
+       inkscape:export-ydpi="76.199997" />
+    <rect
+       style="fill:#8e8e8e;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.30117;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2194"
+       width="32.340427"
+       height="76.118134"
+       x="87.060532"
+       y="32.335388"
+       inkscape:export-filename="C:\Users\hipto\source\repos\Unity\Chrono\Assets\Textures\block.png"
+       inkscape:export-xdpi="76.199997"
+       inkscape:export-ydpi="76.199997" />
+    <rect
+       style="fill:#8e8e8e;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.30117;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2196"
+       width="32.340427"
+       height="76.118134"
+       x="222.96552"
+       y="32.335388"
+       inkscape:export-filename="C:\Users\hipto\source\repos\Unity\Chrono\Assets\Textures\block.png"
+       inkscape:export-xdpi="76.199997"
+       inkscape:export-ydpi="76.199997" />
+    <rect
+       style="fill:#8e8e8e;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.30117;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2198"
+       width="32.340427"
+       height="76.118134"
+       x="268.26721"
+       y="32.335388"
+       inkscape:export-filename="C:\Users\hipto\source\repos\Unity\Chrono\Assets\Textures\block.png"
+       inkscape:export-xdpi="76.199997"
+       inkscape:export-ydpi="76.199997" />
+  </g>
+</svg>

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,12 +36,17 @@ public class Player : MonoBehaviour
     private float verticalSpeed;
     private bool isRunning;
     private float remainingStartDelay;
+    private bool isGoalReached;
 
     private CharacterController characterController;
+    private Animator animator;
+
+    public event EventHandler GoalReached;
 
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -75,12 +81,14 @@ public class Player : MonoBehaviour
             transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
         }
 
+        bool isDashing = Input.GetKey(KeyCode.UpArrow);
+
         horizontalSpeed = normalSpeed;
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (isDashing)
         {
             horizontalSpeed = dashSpeed;
         }
-        
+
         if (!isGrounded || verticalSpeed > 0)
         {
             verticalSpeed += gravity * Time.deltaTime;
@@ -91,6 +99,19 @@ public class Player : MonoBehaviour
         }
 
         characterController.Move((Vector3.up * verticalSpeed + transform.forward * horizontalSpeed) * Time.deltaTime);
+
+        if (!isGrounded)
+        {
+            animator.Play("Jumping");
+        }
+        else if (isDashing)
+        {
+            animator.Play("Running");
+        }
+        else
+        {
+            animator.Play("Walking");
+        }
     }
 
     public bool IsRunning()
@@ -113,7 +134,12 @@ public class Player : MonoBehaviour
         }
         else if (other.GetComponent<Goal>() != null)
         {
-            
+            //if (!isGoalReached)
+            //{
+            //    NotifyGoalReached();
+            //    isGoalReached = true;
+            //    isRunning = false;
+            //}
         }
         else if (other.GetComponent<Girder>() != null)
         {
@@ -122,5 +148,11 @@ public class Player : MonoBehaviour
                 rigidbody.isKinematic = false;
             }
         }
+    }
+
+    private void NotifyGoalReached()
+    {
+        EventHandler handler = GoalReached;
+        handler?.Invoke(this, null);
     }
 }

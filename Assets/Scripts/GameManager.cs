@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour
         {
             currentPlayer = player;
             smoothFollow.SetTarget(currentPlayer.gameObject);
+
+            currentPlayer.GoalReached += OnGoalReached;
         }
 
         if (!currentPlayer.IsRunning())
@@ -52,5 +55,10 @@ public class GameManager : MonoBehaviour
                 currentPlayer.StartRunning();
             }
         }
+    }
+
+    private void OnGoalReached(object sender, EventArgs e)
+    {
+        throw new NotImplementedException();
     }
 }

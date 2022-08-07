@@ -9,10 +9,10 @@ public class LevelManager : MonoBehaviour
     private Transform levelParent;
 
     [SerializeField]
-    private Transform brickParent;
+    private Transform blockParent;
 
     [SerializeField]
-    private GameObject brickPrefab;
+    private GameObject blockPrefab;
 
     [SerializeField]
     private GameObject girderPrefab;
@@ -110,7 +110,7 @@ public class LevelManager : MonoBehaviour
             {
                 if (c == '=')
                 {
-                    Instantiate(brickPrefab, spawnPosition, Quaternion.identity, brickParent);
+                    Instantiate(blockPrefab, spawnPosition, Quaternion.identity, blockParent);
                 }
                 else if (c == '-' || c == '|')
                 {
