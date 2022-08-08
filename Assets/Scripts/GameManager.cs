@@ -48,17 +48,16 @@ public class GameManager : MonoBehaviour
             currentPlayer.GoalReached += OnGoalReached;
         }
 
-        if (!currentPlayer.IsRunning())
+        if (!currentPlayer.IsMoving())
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                currentPlayer.StartRunning();
+                currentPlayer.StartMoving();
             }
         }
     }
 
     private void OnGoalReached(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
     }
 }

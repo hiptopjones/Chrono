@@ -16,7 +16,7 @@ public class Block : MonoBehaviour
     {        
         if (other.GetComponent<Player>() != null)
         {
-            Instantiate(debrisPrefab, transform.position, transform.rotation);
+            Destroy(Instantiate(debrisPrefab, transform.position, transform.rotation), 5);
             Destroy(this.gameObject);
         }
     }

@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 
     private float horizontalSpeed;
     private float verticalSpeed;
-    private bool isRunning;
+    private bool isMoving;
     private float remainingStartDelay;
     private bool isGoalReached;
 
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (!isRunning)
+        if (!isMoving)
         {
             return;
         }
@@ -114,15 +114,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    public bool IsRunning()
+    public bool IsMoving()
     {
-        return isRunning;
+        return isMoving;
     }
 
-    public void StartRunning()
+    public void StartMoving()
     {
         remainingStartDelay = startDelay;
-        isRunning = true;
+        isMoving = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -134,12 +134,13 @@ public class Player : MonoBehaviour
         }
         else if (other.GetComponent<Goal>() != null)
         {
-            //if (!isGoalReached)
-            //{
-            //    NotifyGoalReached();
-            //    isGoalReached = true;
-            //    isRunning = false;
-            //}
+            if (!isGoalReached)
+            {
+                animator.Play("GoalReached");
+                NotifyGoalReached();
+                isGoalReached = true;
+                isMoving = false;
+            }
         }
         else if (other.GetComponent<Girder>() != null)
         {

@@ -15,4 +15,12 @@ public class Goal : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Player>() != null)
+        {
+            GetComponent<Rotator>().enabled = false;
+        }
+    }
 }
